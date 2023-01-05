@@ -6,15 +6,14 @@ interface ITodo {
 
 export default class TodoPersistance implements ITodo {
     id!: number
-    task!: string
-    completed!: boolean
+    [task: string]: any
+     item!: number
+    completed?: boolean
 
     constructor(...data: any[]) {
         const [obj] = data
         for(let key in obj) {
-            console.log(key);
-            console.log(obj[key]);
-            // this[key] = obj[key]
+            this[key] = obj[key]
             
             
         }

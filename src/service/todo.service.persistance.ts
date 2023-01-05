@@ -31,7 +31,7 @@ export default class TodoServicePersistance {
     }
 
     createTodo = (item: string): Promise<TodoPersistance> => {
-        const data = new TodoPersistance(item)
+        const data = Object.seal(new TodoPersistance(item))
         return this.#repo.create(data)
     }
 
